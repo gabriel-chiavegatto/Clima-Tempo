@@ -1,12 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Clima Tenso</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+    <h1>CLIMA TEMPO</h1>
+
+    <div class="localizacao-nao-permitida">
+        <h2>O acesso a sua localização não foi permitido, por favor informe manualmente</h2>
+        <label>Latitude:</label>
+        <input type="text"><br><br>
+        <label>Longitude:</label>
+        <input type="text"><br>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
