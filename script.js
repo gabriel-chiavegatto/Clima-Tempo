@@ -2,7 +2,6 @@
 let lat;
 let lon;
 let geo;
-let promessa;
 localizaçãoDoUsuario();
 
 function localizaçãoDoUsuario() {
@@ -31,14 +30,22 @@ function definePosicao(position) {
 }
 
 function acionarAPI(){
-    promessa = axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=84d815e9ba727eac1fcacc766fec0187`);
-    promessa.then(processarResposta);
+    const promessa = axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=84d815e9ba727eac1fcacc766fec0187`);
+    promessa.then(mostrarClima);
     promessa.catch(deuRuimNaPromisse);
 }
 
-function processarResposta(resposta) {
+function mostrarClima(resposta) {
     console.log("foi promisse api principal");
     console.log(resposta);
+    const ceu = resposta.data.weather[0].main;
+    const iconeDoCeu = resposta.data.weather[0].icon;
+    const temperatura = resposta.data.main.temp;
+    const temperaturaMAX = resposta.data.main.temp_max;
+    const temperaturaMIN = resposta.data.main.temp_min;
+    const humidade = resposta.data.main.humidity;
+
+    const colocaClima = document.querySelector(".clima");
 }
 function deuRuimNaPromisse(resposta) {
     console.log("deu ruim no get");
